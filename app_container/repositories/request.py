@@ -16,15 +16,14 @@ def get(url, data, params, headers, auth):
         },
     )
 
-    return response
+    return response.json()
 
 
-def post(url, data, params, headers, auth, file):
+def post(url, data, params, headers):
     response = requests.post(
-        url,
-        data,
-        params,
-        auth,
+        url=url,
+        data=data,
+        params=params,
         headers={
             **{
                 'Authorization': f'Bearer {auth_token}'
@@ -32,5 +31,6 @@ def post(url, data, params, headers, auth, file):
             **headers
         },
     )
+    print(response)
 
-    return response
+    return response.json()

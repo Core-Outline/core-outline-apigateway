@@ -7,11 +7,14 @@ auth = Auth()
 
 @auth_controller.route('/signin', methods=['POST'])
 def signin():
-    body = request.get_json()
-    return jsonify(auth.signin(body))
+    req = request.get_json()
+    obj = auth.signin(req)
+    return jsonify(obj)
 
 
 @auth_controller.route('/signup', methods=['POST'])
 def signup():
-    body = request.get_json()
-    return jsonify(auth.signup(body))
+    req = request.get_json()
+    obj = auth.signup(req)
+    print(obj)
+    return jsonify(obj)
