@@ -1,0 +1,1 @@
+organization_table = 'organizations'
