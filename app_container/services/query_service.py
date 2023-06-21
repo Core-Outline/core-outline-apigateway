@@ -24,9 +24,16 @@ class QueryService():
         )
 
     def fetch_query_by_parameter(self, query):
-        print(query)
         return get(
             url=f"{servers[query['type']]}/query",
             params=query,
+            headers={}
+        )
+
+    def execute_query(self, query):
+        return post(
+            url=f"{servers[query['type']]}/query/execute",
+            data=query,
+            params={},
             headers={}
         )

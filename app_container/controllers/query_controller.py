@@ -27,7 +27,7 @@ def get_query():
     return jsonify(obj)
 
 
-@query_controller.route('/execute-query', methods=['GET'])
+@query_controller.route('/execute', methods=['POST'])
 def execute_query():
     req = request.get_json()
     return jsonify(query.execute(req))
