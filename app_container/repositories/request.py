@@ -1,16 +1,16 @@
 import requests
 from config.app_configs import auth_token
+import json
 
 
-def get(url, data, params, headers, auth):
+def get(url, params, headers):
     response = requests.get(
         url,
-        data,
         params,
-        auth,
         headers={
             **{
-                'Authorization': f'Bearer {auth_token}'
+                'Authorization': f'Bearer {auth_token}',
+                "Content-Type": "application/json"
             },
             **headers
         },
@@ -22,15 +22,16 @@ def get(url, data, params, headers, auth):
 def post(url, data, params, headers):
     response = requests.post(
         url=url,
-        data=data,
+        data=json.dumps(data),
         params=params,
         headers={
             **{
-                'Authorization': f'Bearer {auth_token}'
+                'Authorization': f'Bearer {auth_token}',
+                "Content-Type": "application/json"
             },
             **headers
         },
     )
-    print(response)
+    print(response.content)
 
     return response.json()

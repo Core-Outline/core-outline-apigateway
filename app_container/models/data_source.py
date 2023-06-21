@@ -19,4 +19,4 @@ class DataSource:
         return self.dataSourceService.get_data_source_by_id(data_source)
 
     def fetch(self, data_source):
-        return self.dataSourceService.fetch_data_source_by_parameter(data_source)
+        return self.dataSourceService.fetch_data_sources_by_parameter(data_source)

@@ -19,12 +19,14 @@ class DataSourceService():
 
     def get_data_source_by_id(self, data_source):
         return get(
-            url=f"{servers[data_source['type']]}'data-source/get-data-source",
-            params=data_source
+            url=f"{servers[data_source['type']]}/data-source/get-data-source",
+            params=data_source,
+            headers={}
         )
 
     def fetch_data_sources_by_parameter(self, data_source):
         return get(
-            url=f"{servers[data_source['type']]}/data-source/data-source",
-            params=data_source
+            url=f"{servers[data_source['type']]}/data-source",
+            params=data_source,
+            headers={}
         )
