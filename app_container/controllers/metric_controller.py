@@ -5,10 +5,10 @@ metric_controller = Blueprint('metric', __name__)
 metric = Metric()
 
 
-@metric_controller.route('/metric', methods=['GET'])
+@metric_controller.route('/', methods=['GET'])
 def fetch_metrics():
     params = dict(request.args)
-    return jsonify(metric.get(params))
+    return jsonify(metric.fetch(params))
 
 
 @metric_controller.route('/create-metric', methods=['POST'])

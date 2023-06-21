@@ -12,4 +12,4 @@ class Metric:
         return self.metricService.get_metric(metric)
 
     def fetch(self, metric):
-        return self.metricService.fetch_metric(metric)
+        return self.metricService.fetch_metric_by_parameter(metric)

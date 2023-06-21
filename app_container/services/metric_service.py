@@ -7,11 +7,11 @@ class MetricService:
     def __init__(self):
         self.db = createClient()
 
-    def create_data_source(self, metric):
+    def create_metric(self, metric):
         return create(self.db, metric_table, metric)
 
-    def get_data_source(self, metric):
+    def get_metric(self, metric):
         return get(self.db, metric_table, metric)
 
     def fetch_metric_by_parameter(self, metric):
-        return get(self.db, metric_table, metric)
+        return fetch(self.db, metric_table, metric)

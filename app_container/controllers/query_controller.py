@@ -5,10 +5,12 @@ query_controller = Blueprint('query', __name__)
 query = Query()
 
 
-@query_controller.route('/query', methods=['GET'])
+@query_controller.route('/', methods=['GET'])
 def fetch_queries():
     params = dict(request.args)
-    return jsonify(query.get(params))
+    obj = query.fetch(params)
+    obj = [{**item, "_id": str(item['_id'])} for item in obj]
+    return jsonify(obj)
 
 
 @query_controller.route('/create-query', methods=['POST'])
@@ -20,10 +22,12 @@ def create_query():
 @query_controller.route('/get-query', methods=['GET'])
 def get_query():
     params = dict(request.args)
-    return jsonify(query.get(params))
+    obj = query.get(params)
+    obj['_id'] = str(obj['_id'])
+    return jsonify(obj)
 
 
 @query_controller.route('/execute-query', methods=['GET'])
 def execute_query():
     req = request.get_json()
-    return jsonify(query.get(req))
+    return jsonify(query.execute(req))
