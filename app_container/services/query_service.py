@@ -1,5 +1,7 @@
 from config.sever_config import servers
 from app_container.repositories.request import get, post
+from app_container.transformers.mysql import transform_mysql
+from app_container.transformers.mongodb import transform_mongodb
 
 
 class QueryService():
@@ -31,9 +33,14 @@ class QueryService():
         )
 
     def execute_query(self, query):
-        return post(
+        res = post(
             url=f"{servers[query['type']]}/query/execute",
             data=query,
             params={},
             headers={}
         )
+
+        if query['type'] == 'mysql':
+            return transform_mysql(res)
+        if query['type'] == 'mysql':
+            return transform_mongodb(res)
