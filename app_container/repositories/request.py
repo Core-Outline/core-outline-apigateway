@@ -32,6 +32,5 @@ def post(url, data, params, headers):
             **headers
         },
     )
-    print(response.content)
 
     return response.json()

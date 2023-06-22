@@ -12,7 +12,6 @@ def createClient():
 
 
 def create(db, collection, document):
-    print(document)
     output = db[collection].insert_one(document)
     return {"_id": str(output.inserted_id)}
 

@@ -1,6 +1,8 @@
 from app_container.repositories.database import createClient, create, get, fetch
+from app_container.repositories.request import post
 
-from config.metric_config import metric_table
+from config.metric_config import metric_table, metrics
+from config.sever_config import servers
 
 
 class MetricService:
@@ -15,3 +17,13 @@ class MetricService:
 
     def fetch_metric_by_parameter(self, metric):
         return fetch(self.db, metric_table, metric)
+
+    def execute_metric(self, metric):
+        return post(
+            url=f"{servers['ml']}/{metrics[metric['metric_type']]}",
+            data=metric,
+            headers={
+
+            },
+            params={}
+        )

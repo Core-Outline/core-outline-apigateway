@@ -16,5 +16,11 @@ arr = [
 
 final_obj = {}
 columns = np.array([[key for key in obj.keys()] for obj in arr]).flatten()
-columns = [val for val in columns]
+columns = set([val for val in columns])
+columns = [col for col in columns]
 print(columns)
+
+for col in columns:
+    final_obj[col] = [val for val in [obj[col] for obj in arr]]
+
+print(final_obj)

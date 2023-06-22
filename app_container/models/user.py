@@ -6,7 +6,6 @@ class User:
         self.userService = UserService()
 
     def create(self, user):
-        print(user)
         return self.userService.create_user(user)
 
     def get(self, user):

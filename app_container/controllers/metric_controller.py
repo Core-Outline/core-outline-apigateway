@@ -21,3 +21,9 @@ def create_metric():
 def get_metric():
     params = dict(request.args)
     return jsonify(metric.get(params))
+
+
+@metric_controller.route('/execute', methods=['POST'])
+def execute_metric():
+    body = request.get_json()
+    return jsonify(metric.execute(body))

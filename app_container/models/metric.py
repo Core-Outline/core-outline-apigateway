@@ -13,3 +13,6 @@ class Metric:
 
     def fetch(self, metric):
         return self.metricService.fetch_metric_by_parameter(metric)
+
+    def execute(self, metric):
+        return self.metricService.execute_metric(metric)

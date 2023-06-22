@@ -39,8 +39,7 @@ class QueryService():
             params={},
             headers={}
         )
-
         if query['type'] == 'mysql':
             return transform_mysql(res)
-        if query['type'] == 'mysql':
+        if query['type'] == 'mongodb':
             return transform_mongodb(res)

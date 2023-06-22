@@ -16,5 +16,4 @@ def signin():
 def signup():
     req = request.get_json()
     obj = auth.signup(req)
-    print(obj)
     return jsonify(obj)
