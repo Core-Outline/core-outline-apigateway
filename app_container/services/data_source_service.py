@@ -25,7 +25,15 @@ class DataSourceService():
 
     def fetch_data_sources_by_parameter(self, data_source):
         return get(
-            url=f"{servers[data_source['type']]}/data-source",
+            url=f"{servers['mongodb']}/data-source",
             params=data_source,
             headers={}
         )
+    
+    def get_data_source_details(self, data_source):
+        return get(
+            url=f"{servers[data_source['type']]}/data-source/get-db-columns-tables",
+            params=data_source,
+            headers={}
+        )
+    

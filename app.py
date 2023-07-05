@@ -1,4 +1,6 @@
 from flask import Flask
+from flask_cors import CORS
+
 from app_container.controllers.data_source_controller import data_source_controller
 from app_container.controllers.query_controller import query_controller
 from app_container.controllers.metric_controller import metric_controller
@@ -8,6 +10,7 @@ from app_container.controllers.user_controller import user_controller
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 app.register_blueprint(data_source_controller, url_prefix='/data-source')

@@ -8,7 +8,9 @@ auth = Auth()
 @auth_controller.route('/signin', methods=['POST'])
 def signin():
     req = request.get_json()
+    print(req)
     obj = auth.signin(req)
+    print(obj)
     return jsonify(obj)
 
 
