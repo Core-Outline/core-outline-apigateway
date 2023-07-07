@@ -26,4 +26,4 @@ class MetricService:
 
             },
             params={}
-        )
+    )

@@ -16,6 +16,7 @@ def fetch_queries():
 @query_controller.route('/create-query', methods=['POST'])
 def create_query():
     req = request.get_json()
+    print(req)
     return jsonify(query.create(req))
 
 

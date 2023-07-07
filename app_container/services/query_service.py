@@ -9,6 +9,7 @@ class QueryService():
         pass
 
     def create_query(self, query):
+        print(query)
         return post(
             url=f"{servers[query['type']]}/query/create-query",
             data=query,
