@@ -18,10 +18,10 @@ def create_data_source():
     req = request.get_json()
     return jsonify(dataSource.create(req))
 
-
 @data_source_controller.route('/get-data-source', methods=['GET'])
 def get_data_source():
     params = dict(request.args)
+    print(params)
     obj = dataSource.get(params)
     obj['_id'] = str(obj['_id'])
     return jsonify(obj)

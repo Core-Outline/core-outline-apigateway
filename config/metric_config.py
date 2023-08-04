@@ -5,5 +5,6 @@ metrics = {
     "customer_segmentation": "customer-segmentation",
     "expenses": "expenses",
     "growth_rate": "growth-rate",
-    "growth_period":"growth-period"
+    "growth_period":"growth-period",
+    "get_forecast": "get-forecast"
 }

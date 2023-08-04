@@ -14,7 +14,8 @@ servers = {
     "mysql": env_var['MYSQL_SERVER'],
     "csv": env_var['CSV_SERVER'],
     "ml": env_var['ML_SERVER'],
-    "postgress": env_var['POSTGRESS_SERVER']
+    "postgress": env_var['POSTGRESS_SERVER'],
+    "social_media": env_var['SOCIAL_MEDIA_SERVER']
 }
 
 

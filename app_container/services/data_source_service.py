@@ -7,6 +7,7 @@ class DataSourceService():
         pass
 
     def create_data_source(self, data_source):
+        print(data_source)
         return post(
             url=f"{servers[data_source['type']]}/data-source/create-data-source",
             data=data_source,

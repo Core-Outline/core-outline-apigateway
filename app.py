@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from flask import Blueprint, request, jsonify
 
 from app_container.controllers.data_source_controller import data_source_controller
 from app_container.controllers.query_controller import query_controller
@@ -21,5 +22,10 @@ app.register_blueprint(user_controller, url_prefix='/user')
 app.register_blueprint(metric_controller, url_prefix='/metric')
 
 
-if __name__ == '__main__':
-    app.run()
+@app.route('/', methods=['GET'])
+def fetch_data_sources():
+    return jsonify("Welcome to Core&Outline")
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)
