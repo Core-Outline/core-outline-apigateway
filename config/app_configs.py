@@ -8,4 +8,4 @@ load_dotenv(dotenv_path=env_path)
 env_var = os.environ
 
 auth_token = ''
-jwt_secret_key = env_var['JWT_SECRET_KEY']
+jwt_secret_key = '12345678'
