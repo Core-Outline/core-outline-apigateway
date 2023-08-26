@@ -8,7 +8,9 @@ query = Query()
 @query_controller.route('/', methods=['GET'])
 def fetch_queries():
     params = dict(request.args)
+    print(params)
     obj = query.fetch(params)
+    print(obj)
     obj = [{**item, "_id": str(item['_id'])} for item in obj]
     return jsonify(obj)
 
